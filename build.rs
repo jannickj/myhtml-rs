@@ -18,7 +18,7 @@ fn main() -> Result<(), BuildErrors> {
     if !path::Path::new("myhtml/include/myhtml/api.h").exists() {
         Command::new("git").args(&["submodule", "init"]).status()?;
         Command::new("git").args(&["submodule", "update"]).status()?;
-    Command::new("make").arg("static").current_dir("myhtml").status()?;
+        Command::new("make").arg("static").current_dir("myhtml").status()?;
     }
 
     let out_dir = env::var("OUT_DIR")?;
@@ -39,6 +39,7 @@ fn main() -> Result<(), BuildErrors> {
         let bindings = bindgen::Builder::default()
             .clang_arg("-Imyhtml/include")
             .header("wrapper.h")
+            .default_enum_style(bindgen::EnumVariation::Rust { non_exhaustive: false })
             .generate().or(Err(BuildErrors::BindError))?;
 
         bindings

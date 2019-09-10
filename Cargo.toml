@@ -5,6 +5,13 @@ authors = ["Jannick Johnsen <jannickboese@msn.com>"]
 edition = "2018"
 build = "build.rs"
 
+[lib]
+name = "myhtml"
+path = "src/lib.rs"
+
+[dependencies]
+derive_more = "0.13.0"
+
 [build-dependencies]
 derive_more = "0.13.0"
 bindgen = "*"

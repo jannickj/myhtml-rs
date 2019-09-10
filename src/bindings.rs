@@ -766,11 +766,14 @@ fn bindgen_test_layout__IO_marker() {
         )
     );
 }
-pub const __codecvt_result___codecvt_ok: __codecvt_result = 0;
-pub const __codecvt_result___codecvt_partial: __codecvt_result = 1;
-pub const __codecvt_result___codecvt_error: __codecvt_result = 2;
-pub const __codecvt_result___codecvt_noconv: __codecvt_result = 3;
-pub type __codecvt_result = u32;
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum __codecvt_result {
+    __codecvt_ok = 0,
+    __codecvt_partial = 1,
+    __codecvt_error = 2,
+    __codecvt_noconv = 3,
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _IO_FILE {
@@ -1661,10 +1664,13 @@ extern "C" {
 extern "C" {
     pub fn funlockfile(__stream: *mut FILE);
 }
-pub const idtype_t_P_ALL: idtype_t = 0;
-pub const idtype_t_P_PID: idtype_t = 1;
-pub const idtype_t_P_PGID: idtype_t = 2;
-pub type idtype_t = u32;
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum idtype_t {
+    P_ALL = 0,
+    P_PID = 1,
+    P_PGID = 2,
+}
 pub type _Float32 = f32;
 pub type _Float64 = f64;
 pub type _Float32x = f64;
@@ -4076,40 +4082,43 @@ extern "C" {
         __base: ::std::os::raw::c_int,
     ) -> uintmax_t;
 }
-pub const mycore_status_MyCORE_STATUS_OK: mycore_status = 0;
-pub const mycore_status_MyCORE_STATUS_ERROR: mycore_status = 1;
-pub const mycore_status_MyCORE_STATUS_ERROR_MEMORY_ALLOCATION: mycore_status = 2;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_MEMORY_ALLOCATION: mycore_status = 9;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_LIST_INIT: mycore_status = 10;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_ATTR_MALLOC: mycore_status = 11;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_ATTR_INIT: mycore_status = 12;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_ATTR_SET: mycore_status = 13;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_ATTR_DESTROY: mycore_status = 14;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_NO_SLOTS: mycore_status = 15;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_BATCH_INIT: mycore_status = 16;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_WORKER_MALLOC: mycore_status = 17;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_WORKER_SEM_CREATE: mycore_status = 18;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_WORKER_THREAD_CREATE: mycore_status = 19;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_MASTER_THREAD_CREATE: mycore_status = 20;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_SEM_PREFIX_MALLOC: mycore_status = 50;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_SEM_CREATE: mycore_status = 51;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_QUEUE_MALLOC: mycore_status = 60;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_QUEUE_NODES_MALLOC: mycore_status = 61;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_QUEUE_NODE_MALLOC: mycore_status = 62;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_MUTEX_MALLOC: mycore_status = 70;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_MUTEX_INIT: mycore_status = 71;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_MUTEX_LOCK: mycore_status = 72;
-pub const mycore_status_MyCORE_STATUS_THREAD_ERROR_MUTEX_UNLOCK: mycore_status = 73;
-pub const mycore_status_MyCORE_STATUS_PERF_ERROR_COMPILED_WITHOUT_PERF: mycore_status = 80;
-pub const mycore_status_MyCORE_STATUS_PERF_ERROR_FIND_CPU_CLOCK: mycore_status = 81;
-pub const mycore_status_MyCORE_STATUS_MCOBJECT_ERROR_CACHE_CREATE: mycore_status = 85;
-pub const mycore_status_MyCORE_STATUS_MCOBJECT_ERROR_CHUNK_CREATE: mycore_status = 86;
-pub const mycore_status_MyCORE_STATUS_MCOBJECT_ERROR_CHUNK_INIT: mycore_status = 87;
-pub const mycore_status_MyCORE_STATUS_MCOBJECT_ERROR_CACHE_REALLOC: mycore_status = 88;
-pub const mycore_status_MyCORE_STATUS_ASYNC_ERROR_LOCK: mycore_status = 96;
-pub const mycore_status_MyCORE_STATUS_ASYNC_ERROR_UNLOCK: mycore_status = 97;
-pub const mycore_status_MyCORE_STATUS_ERROR_NO_FREE_SLOT: mycore_status = 98;
-pub type mycore_status = u32;
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum mycore_status {
+    MyCORE_STATUS_OK = 0,
+    MyCORE_STATUS_ERROR = 1,
+    MyCORE_STATUS_ERROR_MEMORY_ALLOCATION = 2,
+    MyCORE_STATUS_THREAD_ERROR_MEMORY_ALLOCATION = 9,
+    MyCORE_STATUS_THREAD_ERROR_LIST_INIT = 10,
+    MyCORE_STATUS_THREAD_ERROR_ATTR_MALLOC = 11,
+    MyCORE_STATUS_THREAD_ERROR_ATTR_INIT = 12,
+    MyCORE_STATUS_THREAD_ERROR_ATTR_SET = 13,
+    MyCORE_STATUS_THREAD_ERROR_ATTR_DESTROY = 14,
+    MyCORE_STATUS_THREAD_ERROR_NO_SLOTS = 15,
+    MyCORE_STATUS_THREAD_ERROR_BATCH_INIT = 16,
+    MyCORE_STATUS_THREAD_ERROR_WORKER_MALLOC = 17,
+    MyCORE_STATUS_THREAD_ERROR_WORKER_SEM_CREATE = 18,
+    MyCORE_STATUS_THREAD_ERROR_WORKER_THREAD_CREATE = 19,
+    MyCORE_STATUS_THREAD_ERROR_MASTER_THREAD_CREATE = 20,
+    MyCORE_STATUS_THREAD_ERROR_SEM_PREFIX_MALLOC = 50,
+    MyCORE_STATUS_THREAD_ERROR_SEM_CREATE = 51,
+    MyCORE_STATUS_THREAD_ERROR_QUEUE_MALLOC = 60,
+    MyCORE_STATUS_THREAD_ERROR_QUEUE_NODES_MALLOC = 61,
+    MyCORE_STATUS_THREAD_ERROR_QUEUE_NODE_MALLOC = 62,
+    MyCORE_STATUS_THREAD_ERROR_MUTEX_MALLOC = 70,
+    MyCORE_STATUS_THREAD_ERROR_MUTEX_INIT = 71,
+    MyCORE_STATUS_THREAD_ERROR_MUTEX_LOCK = 72,
+    MyCORE_STATUS_THREAD_ERROR_MUTEX_UNLOCK = 73,
+    MyCORE_STATUS_PERF_ERROR_COMPILED_WITHOUT_PERF = 80,
+    MyCORE_STATUS_PERF_ERROR_FIND_CPU_CLOCK = 81,
+    MyCORE_STATUS_MCOBJECT_ERROR_CACHE_CREATE = 85,
+    MyCORE_STATUS_MCOBJECT_ERROR_CHUNK_CREATE = 86,
+    MyCORE_STATUS_MCOBJECT_ERROR_CHUNK_INIT = 87,
+    MyCORE_STATUS_MCOBJECT_ERROR_CACHE_REALLOC = 88,
+    MyCORE_STATUS_ASYNC_ERROR_LOCK = 96,
+    MyCORE_STATUS_ASYNC_ERROR_UNLOCK = 97,
+    MyCORE_STATUS_ERROR_NO_FREE_SLOT = 98,
+}
 pub use self::mycore_status as mycore_status_t;
 pub type mystatus_t = ::std::os::raw::c_uint;
 #[repr(C)]
@@ -4627,10 +4636,13 @@ extern "C" {
         relative_pos: *mut usize,
     ) -> usize;
 }
-pub const mcsync_status_MCSYNC_STATUS_OK: mcsync_status = 0;
-pub const mcsync_status_MCSYNC_STATUS_NOT_OK: mcsync_status = 1;
-pub const mcsync_status_MCSYNC_STATUS_ERROR_MEM_ALLOCATE: mcsync_status = 2;
-pub type mcsync_status = u32;
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum mcsync_status {
+    MCSYNC_STATUS_OK = 0,
+    MCSYNC_STATUS_NOT_OK = 1,
+    MCSYNC_STATUS_ERROR_MEM_ALLOCATE = 2,
+}
 pub use self::mcsync_status as mcsync_status_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5713,55 +5725,63 @@ extern "C" {
 extern "C" {
     pub fn mycore_string_whitespace_from_begin(target: *mut mycore_string_t) -> usize;
 }
-pub const myencoding_list_MyENCODING_DEFAULT: myencoding_list = 0;
-pub const myencoding_list_MyENCODING_NOT_DETERMINED: myencoding_list = 2;
-pub const myencoding_list_MyENCODING_UTF_8: myencoding_list = 0;
-pub const myencoding_list_MyENCODING_UTF_16LE: myencoding_list = 4;
-pub const myencoding_list_MyENCODING_UTF_16BE: myencoding_list = 5;
-pub const myencoding_list_MyENCODING_X_USER_DEFINED: myencoding_list = 6;
-pub const myencoding_list_MyENCODING_BIG5: myencoding_list = 7;
-pub const myencoding_list_MyENCODING_EUC_JP: myencoding_list = 8;
-pub const myencoding_list_MyENCODING_EUC_KR: myencoding_list = 9;
-pub const myencoding_list_MyENCODING_GB18030: myencoding_list = 10;
-pub const myencoding_list_MyENCODING_GBK: myencoding_list = 11;
-pub const myencoding_list_MyENCODING_IBM866: myencoding_list = 12;
-pub const myencoding_list_MyENCODING_ISO_2022_JP: myencoding_list = 13;
-pub const myencoding_list_MyENCODING_ISO_8859_10: myencoding_list = 14;
-pub const myencoding_list_MyENCODING_ISO_8859_13: myencoding_list = 15;
-pub const myencoding_list_MyENCODING_ISO_8859_14: myencoding_list = 16;
-pub const myencoding_list_MyENCODING_ISO_8859_15: myencoding_list = 17;
-pub const myencoding_list_MyENCODING_ISO_8859_16: myencoding_list = 18;
-pub const myencoding_list_MyENCODING_ISO_8859_2: myencoding_list = 19;
-pub const myencoding_list_MyENCODING_ISO_8859_3: myencoding_list = 20;
-pub const myencoding_list_MyENCODING_ISO_8859_4: myencoding_list = 21;
-pub const myencoding_list_MyENCODING_ISO_8859_5: myencoding_list = 22;
-pub const myencoding_list_MyENCODING_ISO_8859_6: myencoding_list = 23;
-pub const myencoding_list_MyENCODING_ISO_8859_7: myencoding_list = 24;
-pub const myencoding_list_MyENCODING_ISO_8859_8: myencoding_list = 25;
-pub const myencoding_list_MyENCODING_ISO_8859_8_I: myencoding_list = 26;
-pub const myencoding_list_MyENCODING_KOI8_R: myencoding_list = 27;
-pub const myencoding_list_MyENCODING_KOI8_U: myencoding_list = 28;
-pub const myencoding_list_MyENCODING_MACINTOSH: myencoding_list = 29;
-pub const myencoding_list_MyENCODING_SHIFT_JIS: myencoding_list = 30;
-pub const myencoding_list_MyENCODING_WINDOWS_1250: myencoding_list = 31;
-pub const myencoding_list_MyENCODING_WINDOWS_1251: myencoding_list = 32;
-pub const myencoding_list_MyENCODING_WINDOWS_1252: myencoding_list = 33;
-pub const myencoding_list_MyENCODING_WINDOWS_1253: myencoding_list = 34;
-pub const myencoding_list_MyENCODING_WINDOWS_1254: myencoding_list = 35;
-pub const myencoding_list_MyENCODING_WINDOWS_1255: myencoding_list = 36;
-pub const myencoding_list_MyENCODING_WINDOWS_1256: myencoding_list = 37;
-pub const myencoding_list_MyENCODING_WINDOWS_1257: myencoding_list = 38;
-pub const myencoding_list_MyENCODING_WINDOWS_1258: myencoding_list = 39;
-pub const myencoding_list_MyENCODING_WINDOWS_874: myencoding_list = 40;
-pub const myencoding_list_MyENCODING_X_MAC_CYRILLIC: myencoding_list = 41;
-pub const myencoding_list_MyENCODING_LAST_ENTRY: myencoding_list = 42;
-pub type myencoding_list = u32;
+impl myencoding_list {
+    pub const MyENCODING_UTF_8: myencoding_list = myencoding_list::MyENCODING_DEFAULT;
+}
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myencoding_list {
+    MyENCODING_DEFAULT = 0,
+    MyENCODING_NOT_DETERMINED = 2,
+    MyENCODING_UTF_16LE = 4,
+    MyENCODING_UTF_16BE = 5,
+    MyENCODING_X_USER_DEFINED = 6,
+    MyENCODING_BIG5 = 7,
+    MyENCODING_EUC_JP = 8,
+    MyENCODING_EUC_KR = 9,
+    MyENCODING_GB18030 = 10,
+    MyENCODING_GBK = 11,
+    MyENCODING_IBM866 = 12,
+    MyENCODING_ISO_2022_JP = 13,
+    MyENCODING_ISO_8859_10 = 14,
+    MyENCODING_ISO_8859_13 = 15,
+    MyENCODING_ISO_8859_14 = 16,
+    MyENCODING_ISO_8859_15 = 17,
+    MyENCODING_ISO_8859_16 = 18,
+    MyENCODING_ISO_8859_2 = 19,
+    MyENCODING_ISO_8859_3 = 20,
+    MyENCODING_ISO_8859_4 = 21,
+    MyENCODING_ISO_8859_5 = 22,
+    MyENCODING_ISO_8859_6 = 23,
+    MyENCODING_ISO_8859_7 = 24,
+    MyENCODING_ISO_8859_8 = 25,
+    MyENCODING_ISO_8859_8_I = 26,
+    MyENCODING_KOI8_R = 27,
+    MyENCODING_KOI8_U = 28,
+    MyENCODING_MACINTOSH = 29,
+    MyENCODING_SHIFT_JIS = 30,
+    MyENCODING_WINDOWS_1250 = 31,
+    MyENCODING_WINDOWS_1251 = 32,
+    MyENCODING_WINDOWS_1252 = 33,
+    MyENCODING_WINDOWS_1253 = 34,
+    MyENCODING_WINDOWS_1254 = 35,
+    MyENCODING_WINDOWS_1255 = 36,
+    MyENCODING_WINDOWS_1256 = 37,
+    MyENCODING_WINDOWS_1257 = 38,
+    MyENCODING_WINDOWS_1258 = 39,
+    MyENCODING_WINDOWS_874 = 40,
+    MyENCODING_X_MAC_CYRILLIC = 41,
+    MyENCODING_LAST_ENTRY = 42,
+}
 pub use self::myencoding_list as myencoding_t;
-pub const myencoding_status_MyENCODING_STATUS_OK: myencoding_status = 0;
-pub const myencoding_status_MyENCODING_STATUS_ERROR: myencoding_status = 1;
-pub const myencoding_status_MyENCODING_STATUS_CONTINUE: myencoding_status = 2;
-pub const myencoding_status_MyENCODING_STATUS_DONE: myencoding_status = 4;
-pub type myencoding_status = u32;
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myencoding_status {
+    MyENCODING_STATUS_OK = 0,
+    MyENCODING_STATUS_ERROR = 1,
+    MyENCODING_STATUS_CONTINUE = 2,
+    MyENCODING_STATUS_DONE = 4,
+}
 pub use self::myencoding_status as myencoding_status_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -5805,317 +5825,333 @@ pub struct myencoding_entry_name_index {
     _unused: [u8; 0],
 }
 pub type myencoding_entry_name_index_t = myencoding_entry_name_index;
-pub const myhtml_tags_MyHTML_TAG__UNDEF: myhtml_tags = 0;
-pub const myhtml_tags_MyHTML_TAG__TEXT: myhtml_tags = 1;
-pub const myhtml_tags_MyHTML_TAG__COMMENT: myhtml_tags = 2;
-pub const myhtml_tags_MyHTML_TAG__DOCTYPE: myhtml_tags = 3;
-pub const myhtml_tags_MyHTML_TAG_A: myhtml_tags = 4;
-pub const myhtml_tags_MyHTML_TAG_ABBR: myhtml_tags = 5;
-pub const myhtml_tags_MyHTML_TAG_ACRONYM: myhtml_tags = 6;
-pub const myhtml_tags_MyHTML_TAG_ADDRESS: myhtml_tags = 7;
-pub const myhtml_tags_MyHTML_TAG_ANNOTATION_XML: myhtml_tags = 8;
-pub const myhtml_tags_MyHTML_TAG_APPLET: myhtml_tags = 9;
-pub const myhtml_tags_MyHTML_TAG_AREA: myhtml_tags = 10;
-pub const myhtml_tags_MyHTML_TAG_ARTICLE: myhtml_tags = 11;
-pub const myhtml_tags_MyHTML_TAG_ASIDE: myhtml_tags = 12;
-pub const myhtml_tags_MyHTML_TAG_AUDIO: myhtml_tags = 13;
-pub const myhtml_tags_MyHTML_TAG_B: myhtml_tags = 14;
-pub const myhtml_tags_MyHTML_TAG_BASE: myhtml_tags = 15;
-pub const myhtml_tags_MyHTML_TAG_BASEFONT: myhtml_tags = 16;
-pub const myhtml_tags_MyHTML_TAG_BDI: myhtml_tags = 17;
-pub const myhtml_tags_MyHTML_TAG_BDO: myhtml_tags = 18;
-pub const myhtml_tags_MyHTML_TAG_BGSOUND: myhtml_tags = 19;
-pub const myhtml_tags_MyHTML_TAG_BIG: myhtml_tags = 20;
-pub const myhtml_tags_MyHTML_TAG_BLINK: myhtml_tags = 21;
-pub const myhtml_tags_MyHTML_TAG_BLOCKQUOTE: myhtml_tags = 22;
-pub const myhtml_tags_MyHTML_TAG_BODY: myhtml_tags = 23;
-pub const myhtml_tags_MyHTML_TAG_BR: myhtml_tags = 24;
-pub const myhtml_tags_MyHTML_TAG_BUTTON: myhtml_tags = 25;
-pub const myhtml_tags_MyHTML_TAG_CANVAS: myhtml_tags = 26;
-pub const myhtml_tags_MyHTML_TAG_CAPTION: myhtml_tags = 27;
-pub const myhtml_tags_MyHTML_TAG_CENTER: myhtml_tags = 28;
-pub const myhtml_tags_MyHTML_TAG_CITE: myhtml_tags = 29;
-pub const myhtml_tags_MyHTML_TAG_CODE: myhtml_tags = 30;
-pub const myhtml_tags_MyHTML_TAG_COL: myhtml_tags = 31;
-pub const myhtml_tags_MyHTML_TAG_COLGROUP: myhtml_tags = 32;
-pub const myhtml_tags_MyHTML_TAG_COMMAND: myhtml_tags = 33;
-pub const myhtml_tags_MyHTML_TAG_COMMENT: myhtml_tags = 34;
-pub const myhtml_tags_MyHTML_TAG_DATALIST: myhtml_tags = 35;
-pub const myhtml_tags_MyHTML_TAG_DD: myhtml_tags = 36;
-pub const myhtml_tags_MyHTML_TAG_DEL: myhtml_tags = 37;
-pub const myhtml_tags_MyHTML_TAG_DETAILS: myhtml_tags = 38;
-pub const myhtml_tags_MyHTML_TAG_DFN: myhtml_tags = 39;
-pub const myhtml_tags_MyHTML_TAG_DIALOG: myhtml_tags = 40;
-pub const myhtml_tags_MyHTML_TAG_DIR: myhtml_tags = 41;
-pub const myhtml_tags_MyHTML_TAG_DIV: myhtml_tags = 42;
-pub const myhtml_tags_MyHTML_TAG_DL: myhtml_tags = 43;
-pub const myhtml_tags_MyHTML_TAG_DT: myhtml_tags = 44;
-pub const myhtml_tags_MyHTML_TAG_EM: myhtml_tags = 45;
-pub const myhtml_tags_MyHTML_TAG_EMBED: myhtml_tags = 46;
-pub const myhtml_tags_MyHTML_TAG_FIELDSET: myhtml_tags = 47;
-pub const myhtml_tags_MyHTML_TAG_FIGCAPTION: myhtml_tags = 48;
-pub const myhtml_tags_MyHTML_TAG_FIGURE: myhtml_tags = 49;
-pub const myhtml_tags_MyHTML_TAG_FONT: myhtml_tags = 50;
-pub const myhtml_tags_MyHTML_TAG_FOOTER: myhtml_tags = 51;
-pub const myhtml_tags_MyHTML_TAG_FORM: myhtml_tags = 52;
-pub const myhtml_tags_MyHTML_TAG_FRAME: myhtml_tags = 53;
-pub const myhtml_tags_MyHTML_TAG_FRAMESET: myhtml_tags = 54;
-pub const myhtml_tags_MyHTML_TAG_H1: myhtml_tags = 55;
-pub const myhtml_tags_MyHTML_TAG_H2: myhtml_tags = 56;
-pub const myhtml_tags_MyHTML_TAG_H3: myhtml_tags = 57;
-pub const myhtml_tags_MyHTML_TAG_H4: myhtml_tags = 58;
-pub const myhtml_tags_MyHTML_TAG_H5: myhtml_tags = 59;
-pub const myhtml_tags_MyHTML_TAG_H6: myhtml_tags = 60;
-pub const myhtml_tags_MyHTML_TAG_HEAD: myhtml_tags = 61;
-pub const myhtml_tags_MyHTML_TAG_HEADER: myhtml_tags = 62;
-pub const myhtml_tags_MyHTML_TAG_HGROUP: myhtml_tags = 63;
-pub const myhtml_tags_MyHTML_TAG_HR: myhtml_tags = 64;
-pub const myhtml_tags_MyHTML_TAG_HTML: myhtml_tags = 65;
-pub const myhtml_tags_MyHTML_TAG_I: myhtml_tags = 66;
-pub const myhtml_tags_MyHTML_TAG_IFRAME: myhtml_tags = 67;
-pub const myhtml_tags_MyHTML_TAG_IMAGE: myhtml_tags = 68;
-pub const myhtml_tags_MyHTML_TAG_IMG: myhtml_tags = 69;
-pub const myhtml_tags_MyHTML_TAG_INPUT: myhtml_tags = 70;
-pub const myhtml_tags_MyHTML_TAG_INS: myhtml_tags = 71;
-pub const myhtml_tags_MyHTML_TAG_ISINDEX: myhtml_tags = 72;
-pub const myhtml_tags_MyHTML_TAG_KBD: myhtml_tags = 73;
-pub const myhtml_tags_MyHTML_TAG_KEYGEN: myhtml_tags = 74;
-pub const myhtml_tags_MyHTML_TAG_LABEL: myhtml_tags = 75;
-pub const myhtml_tags_MyHTML_TAG_LEGEND: myhtml_tags = 76;
-pub const myhtml_tags_MyHTML_TAG_LI: myhtml_tags = 77;
-pub const myhtml_tags_MyHTML_TAG_LINK: myhtml_tags = 78;
-pub const myhtml_tags_MyHTML_TAG_LISTING: myhtml_tags = 79;
-pub const myhtml_tags_MyHTML_TAG_MAIN: myhtml_tags = 80;
-pub const myhtml_tags_MyHTML_TAG_MAP: myhtml_tags = 81;
-pub const myhtml_tags_MyHTML_TAG_MARK: myhtml_tags = 82;
-pub const myhtml_tags_MyHTML_TAG_MARQUEE: myhtml_tags = 83;
-pub const myhtml_tags_MyHTML_TAG_MENU: myhtml_tags = 84;
-pub const myhtml_tags_MyHTML_TAG_MENUITEM: myhtml_tags = 85;
-pub const myhtml_tags_MyHTML_TAG_META: myhtml_tags = 86;
-pub const myhtml_tags_MyHTML_TAG_METER: myhtml_tags = 87;
-pub const myhtml_tags_MyHTML_TAG_MTEXT: myhtml_tags = 88;
-pub const myhtml_tags_MyHTML_TAG_NAV: myhtml_tags = 89;
-pub const myhtml_tags_MyHTML_TAG_NOBR: myhtml_tags = 90;
-pub const myhtml_tags_MyHTML_TAG_NOEMBED: myhtml_tags = 91;
-pub const myhtml_tags_MyHTML_TAG_NOFRAMES: myhtml_tags = 92;
-pub const myhtml_tags_MyHTML_TAG_NOSCRIPT: myhtml_tags = 93;
-pub const myhtml_tags_MyHTML_TAG_OBJECT: myhtml_tags = 94;
-pub const myhtml_tags_MyHTML_TAG_OL: myhtml_tags = 95;
-pub const myhtml_tags_MyHTML_TAG_OPTGROUP: myhtml_tags = 96;
-pub const myhtml_tags_MyHTML_TAG_OPTION: myhtml_tags = 97;
-pub const myhtml_tags_MyHTML_TAG_OUTPUT: myhtml_tags = 98;
-pub const myhtml_tags_MyHTML_TAG_P: myhtml_tags = 99;
-pub const myhtml_tags_MyHTML_TAG_PARAM: myhtml_tags = 100;
-pub const myhtml_tags_MyHTML_TAG_PLAINTEXT: myhtml_tags = 101;
-pub const myhtml_tags_MyHTML_TAG_PRE: myhtml_tags = 102;
-pub const myhtml_tags_MyHTML_TAG_PROGRESS: myhtml_tags = 103;
-pub const myhtml_tags_MyHTML_TAG_Q: myhtml_tags = 104;
-pub const myhtml_tags_MyHTML_TAG_RB: myhtml_tags = 105;
-pub const myhtml_tags_MyHTML_TAG_RP: myhtml_tags = 106;
-pub const myhtml_tags_MyHTML_TAG_RT: myhtml_tags = 107;
-pub const myhtml_tags_MyHTML_TAG_RTC: myhtml_tags = 108;
-pub const myhtml_tags_MyHTML_TAG_RUBY: myhtml_tags = 109;
-pub const myhtml_tags_MyHTML_TAG_S: myhtml_tags = 110;
-pub const myhtml_tags_MyHTML_TAG_SAMP: myhtml_tags = 111;
-pub const myhtml_tags_MyHTML_TAG_SCRIPT: myhtml_tags = 112;
-pub const myhtml_tags_MyHTML_TAG_SECTION: myhtml_tags = 113;
-pub const myhtml_tags_MyHTML_TAG_SELECT: myhtml_tags = 114;
-pub const myhtml_tags_MyHTML_TAG_SMALL: myhtml_tags = 115;
-pub const myhtml_tags_MyHTML_TAG_SOURCE: myhtml_tags = 116;
-pub const myhtml_tags_MyHTML_TAG_SPAN: myhtml_tags = 117;
-pub const myhtml_tags_MyHTML_TAG_STRIKE: myhtml_tags = 118;
-pub const myhtml_tags_MyHTML_TAG_STRONG: myhtml_tags = 119;
-pub const myhtml_tags_MyHTML_TAG_STYLE: myhtml_tags = 120;
-pub const myhtml_tags_MyHTML_TAG_SUB: myhtml_tags = 121;
-pub const myhtml_tags_MyHTML_TAG_SUMMARY: myhtml_tags = 122;
-pub const myhtml_tags_MyHTML_TAG_SUP: myhtml_tags = 123;
-pub const myhtml_tags_MyHTML_TAG_SVG: myhtml_tags = 124;
-pub const myhtml_tags_MyHTML_TAG_TABLE: myhtml_tags = 125;
-pub const myhtml_tags_MyHTML_TAG_TBODY: myhtml_tags = 126;
-pub const myhtml_tags_MyHTML_TAG_TD: myhtml_tags = 127;
-pub const myhtml_tags_MyHTML_TAG_TEMPLATE: myhtml_tags = 128;
-pub const myhtml_tags_MyHTML_TAG_TEXTAREA: myhtml_tags = 129;
-pub const myhtml_tags_MyHTML_TAG_TFOOT: myhtml_tags = 130;
-pub const myhtml_tags_MyHTML_TAG_TH: myhtml_tags = 131;
-pub const myhtml_tags_MyHTML_TAG_THEAD: myhtml_tags = 132;
-pub const myhtml_tags_MyHTML_TAG_TIME: myhtml_tags = 133;
-pub const myhtml_tags_MyHTML_TAG_TITLE: myhtml_tags = 134;
-pub const myhtml_tags_MyHTML_TAG_TR: myhtml_tags = 135;
-pub const myhtml_tags_MyHTML_TAG_TRACK: myhtml_tags = 136;
-pub const myhtml_tags_MyHTML_TAG_TT: myhtml_tags = 137;
-pub const myhtml_tags_MyHTML_TAG_U: myhtml_tags = 138;
-pub const myhtml_tags_MyHTML_TAG_UL: myhtml_tags = 139;
-pub const myhtml_tags_MyHTML_TAG_VAR: myhtml_tags = 140;
-pub const myhtml_tags_MyHTML_TAG_VIDEO: myhtml_tags = 141;
-pub const myhtml_tags_MyHTML_TAG_WBR: myhtml_tags = 142;
-pub const myhtml_tags_MyHTML_TAG_XMP: myhtml_tags = 143;
-pub const myhtml_tags_MyHTML_TAG_ALTGLYPH: myhtml_tags = 144;
-pub const myhtml_tags_MyHTML_TAG_ALTGLYPHDEF: myhtml_tags = 145;
-pub const myhtml_tags_MyHTML_TAG_ALTGLYPHITEM: myhtml_tags = 146;
-pub const myhtml_tags_MyHTML_TAG_ANIMATE: myhtml_tags = 147;
-pub const myhtml_tags_MyHTML_TAG_ANIMATECOLOR: myhtml_tags = 148;
-pub const myhtml_tags_MyHTML_TAG_ANIMATEMOTION: myhtml_tags = 149;
-pub const myhtml_tags_MyHTML_TAG_ANIMATETRANSFORM: myhtml_tags = 150;
-pub const myhtml_tags_MyHTML_TAG_CIRCLE: myhtml_tags = 151;
-pub const myhtml_tags_MyHTML_TAG_CLIPPATH: myhtml_tags = 152;
-pub const myhtml_tags_MyHTML_TAG_COLOR_PROFILE: myhtml_tags = 153;
-pub const myhtml_tags_MyHTML_TAG_CURSOR: myhtml_tags = 154;
-pub const myhtml_tags_MyHTML_TAG_DEFS: myhtml_tags = 155;
-pub const myhtml_tags_MyHTML_TAG_DESC: myhtml_tags = 156;
-pub const myhtml_tags_MyHTML_TAG_ELLIPSE: myhtml_tags = 157;
-pub const myhtml_tags_MyHTML_TAG_FEBLEND: myhtml_tags = 158;
-pub const myhtml_tags_MyHTML_TAG_FECOLORMATRIX: myhtml_tags = 159;
-pub const myhtml_tags_MyHTML_TAG_FECOMPONENTTRANSFER: myhtml_tags = 160;
-pub const myhtml_tags_MyHTML_TAG_FECOMPOSITE: myhtml_tags = 161;
-pub const myhtml_tags_MyHTML_TAG_FECONVOLVEMATRIX: myhtml_tags = 162;
-pub const myhtml_tags_MyHTML_TAG_FEDIFFUSELIGHTING: myhtml_tags = 163;
-pub const myhtml_tags_MyHTML_TAG_FEDISPLACEMENTMAP: myhtml_tags = 164;
-pub const myhtml_tags_MyHTML_TAG_FEDISTANTLIGHT: myhtml_tags = 165;
-pub const myhtml_tags_MyHTML_TAG_FEDROPSHADOW: myhtml_tags = 166;
-pub const myhtml_tags_MyHTML_TAG_FEFLOOD: myhtml_tags = 167;
-pub const myhtml_tags_MyHTML_TAG_FEFUNCA: myhtml_tags = 168;
-pub const myhtml_tags_MyHTML_TAG_FEFUNCB: myhtml_tags = 169;
-pub const myhtml_tags_MyHTML_TAG_FEFUNCG: myhtml_tags = 170;
-pub const myhtml_tags_MyHTML_TAG_FEFUNCR: myhtml_tags = 171;
-pub const myhtml_tags_MyHTML_TAG_FEGAUSSIANBLUR: myhtml_tags = 172;
-pub const myhtml_tags_MyHTML_TAG_FEIMAGE: myhtml_tags = 173;
-pub const myhtml_tags_MyHTML_TAG_FEMERGE: myhtml_tags = 174;
-pub const myhtml_tags_MyHTML_TAG_FEMERGENODE: myhtml_tags = 175;
-pub const myhtml_tags_MyHTML_TAG_FEMORPHOLOGY: myhtml_tags = 176;
-pub const myhtml_tags_MyHTML_TAG_FEOFFSET: myhtml_tags = 177;
-pub const myhtml_tags_MyHTML_TAG_FEPOINTLIGHT: myhtml_tags = 178;
-pub const myhtml_tags_MyHTML_TAG_FESPECULARLIGHTING: myhtml_tags = 179;
-pub const myhtml_tags_MyHTML_TAG_FESPOTLIGHT: myhtml_tags = 180;
-pub const myhtml_tags_MyHTML_TAG_FETILE: myhtml_tags = 181;
-pub const myhtml_tags_MyHTML_TAG_FETURBULENCE: myhtml_tags = 182;
-pub const myhtml_tags_MyHTML_TAG_FILTER: myhtml_tags = 183;
-pub const myhtml_tags_MyHTML_TAG_FONT_FACE: myhtml_tags = 184;
-pub const myhtml_tags_MyHTML_TAG_FONT_FACE_FORMAT: myhtml_tags = 185;
-pub const myhtml_tags_MyHTML_TAG_FONT_FACE_NAME: myhtml_tags = 186;
-pub const myhtml_tags_MyHTML_TAG_FONT_FACE_SRC: myhtml_tags = 187;
-pub const myhtml_tags_MyHTML_TAG_FONT_FACE_URI: myhtml_tags = 188;
-pub const myhtml_tags_MyHTML_TAG_FOREIGNOBJECT: myhtml_tags = 189;
-pub const myhtml_tags_MyHTML_TAG_G: myhtml_tags = 190;
-pub const myhtml_tags_MyHTML_TAG_GLYPH: myhtml_tags = 191;
-pub const myhtml_tags_MyHTML_TAG_GLYPHREF: myhtml_tags = 192;
-pub const myhtml_tags_MyHTML_TAG_HKERN: myhtml_tags = 193;
-pub const myhtml_tags_MyHTML_TAG_LINE: myhtml_tags = 194;
-pub const myhtml_tags_MyHTML_TAG_LINEARGRADIENT: myhtml_tags = 195;
-pub const myhtml_tags_MyHTML_TAG_MARKER: myhtml_tags = 196;
-pub const myhtml_tags_MyHTML_TAG_MASK: myhtml_tags = 197;
-pub const myhtml_tags_MyHTML_TAG_METADATA: myhtml_tags = 198;
-pub const myhtml_tags_MyHTML_TAG_MISSING_GLYPH: myhtml_tags = 199;
-pub const myhtml_tags_MyHTML_TAG_MPATH: myhtml_tags = 200;
-pub const myhtml_tags_MyHTML_TAG_PATH: myhtml_tags = 201;
-pub const myhtml_tags_MyHTML_TAG_PATTERN: myhtml_tags = 202;
-pub const myhtml_tags_MyHTML_TAG_POLYGON: myhtml_tags = 203;
-pub const myhtml_tags_MyHTML_TAG_POLYLINE: myhtml_tags = 204;
-pub const myhtml_tags_MyHTML_TAG_RADIALGRADIENT: myhtml_tags = 205;
-pub const myhtml_tags_MyHTML_TAG_RECT: myhtml_tags = 206;
-pub const myhtml_tags_MyHTML_TAG_SET: myhtml_tags = 207;
-pub const myhtml_tags_MyHTML_TAG_STOP: myhtml_tags = 208;
-pub const myhtml_tags_MyHTML_TAG_SWITCH: myhtml_tags = 209;
-pub const myhtml_tags_MyHTML_TAG_SYMBOL: myhtml_tags = 210;
-pub const myhtml_tags_MyHTML_TAG_TEXT: myhtml_tags = 211;
-pub const myhtml_tags_MyHTML_TAG_TEXTPATH: myhtml_tags = 212;
-pub const myhtml_tags_MyHTML_TAG_TREF: myhtml_tags = 213;
-pub const myhtml_tags_MyHTML_TAG_TSPAN: myhtml_tags = 214;
-pub const myhtml_tags_MyHTML_TAG_USE: myhtml_tags = 215;
-pub const myhtml_tags_MyHTML_TAG_VIEW: myhtml_tags = 216;
-pub const myhtml_tags_MyHTML_TAG_VKERN: myhtml_tags = 217;
-pub const myhtml_tags_MyHTML_TAG_MATH: myhtml_tags = 218;
-pub const myhtml_tags_MyHTML_TAG_MACTION: myhtml_tags = 219;
-pub const myhtml_tags_MyHTML_TAG_MALIGNGROUP: myhtml_tags = 220;
-pub const myhtml_tags_MyHTML_TAG_MALIGNMARK: myhtml_tags = 221;
-pub const myhtml_tags_MyHTML_TAG_MENCLOSE: myhtml_tags = 222;
-pub const myhtml_tags_MyHTML_TAG_MERROR: myhtml_tags = 223;
-pub const myhtml_tags_MyHTML_TAG_MFENCED: myhtml_tags = 224;
-pub const myhtml_tags_MyHTML_TAG_MFRAC: myhtml_tags = 225;
-pub const myhtml_tags_MyHTML_TAG_MGLYPH: myhtml_tags = 226;
-pub const myhtml_tags_MyHTML_TAG_MI: myhtml_tags = 227;
-pub const myhtml_tags_MyHTML_TAG_MLABELEDTR: myhtml_tags = 228;
-pub const myhtml_tags_MyHTML_TAG_MLONGDIV: myhtml_tags = 229;
-pub const myhtml_tags_MyHTML_TAG_MMULTISCRIPTS: myhtml_tags = 230;
-pub const myhtml_tags_MyHTML_TAG_MN: myhtml_tags = 231;
-pub const myhtml_tags_MyHTML_TAG_MO: myhtml_tags = 232;
-pub const myhtml_tags_MyHTML_TAG_MOVER: myhtml_tags = 233;
-pub const myhtml_tags_MyHTML_TAG_MPADDED: myhtml_tags = 234;
-pub const myhtml_tags_MyHTML_TAG_MPHANTOM: myhtml_tags = 235;
-pub const myhtml_tags_MyHTML_TAG_MROOT: myhtml_tags = 236;
-pub const myhtml_tags_MyHTML_TAG_MROW: myhtml_tags = 237;
-pub const myhtml_tags_MyHTML_TAG_MS: myhtml_tags = 238;
-pub const myhtml_tags_MyHTML_TAG_MSCARRIES: myhtml_tags = 239;
-pub const myhtml_tags_MyHTML_TAG_MSCARRY: myhtml_tags = 240;
-pub const myhtml_tags_MyHTML_TAG_MSGROUP: myhtml_tags = 241;
-pub const myhtml_tags_MyHTML_TAG_MSLINE: myhtml_tags = 242;
-pub const myhtml_tags_MyHTML_TAG_MSPACE: myhtml_tags = 243;
-pub const myhtml_tags_MyHTML_TAG_MSQRT: myhtml_tags = 244;
-pub const myhtml_tags_MyHTML_TAG_MSROW: myhtml_tags = 245;
-pub const myhtml_tags_MyHTML_TAG_MSTACK: myhtml_tags = 246;
-pub const myhtml_tags_MyHTML_TAG_MSTYLE: myhtml_tags = 247;
-pub const myhtml_tags_MyHTML_TAG_MSUB: myhtml_tags = 248;
-pub const myhtml_tags_MyHTML_TAG_MSUP: myhtml_tags = 249;
-pub const myhtml_tags_MyHTML_TAG_MSUBSUP: myhtml_tags = 250;
-pub const myhtml_tags_MyHTML_TAG__END_OF_FILE: myhtml_tags = 251;
-pub const myhtml_tags_MyHTML_TAG_FIRST_ENTRY: myhtml_tags = 1;
-pub const myhtml_tags_MyHTML_TAG_LAST_ENTRY: myhtml_tags = 252;
+impl myhtml_tags {
+    pub const MyHTML_TAG_FIRST_ENTRY: myhtml_tags = myhtml_tags::MyHTML_TAG__TEXT;
+}
+#[repr(u32)]
 #[doc = " @struct basic tag ids"]
-pub type myhtml_tags = u32;
-pub const myhtml_status_MyHTML_STATUS_OK: myhtml_status = 0;
-pub const myhtml_status_MyHTML_STATUS_ERROR: myhtml_status = 1;
-pub const myhtml_status_MyHTML_STATUS_ERROR_MEMORY_ALLOCATION: myhtml_status = 2;
-pub const myhtml_status_MyHTML_STATUS_RULES_ERROR_MEMORY_ALLOCATION: myhtml_status = 36964;
-pub const myhtml_status_MyHTML_STATUS_TOKENIZER_ERROR_MEMORY_ALLOCATION: myhtml_status = 37164;
-pub const myhtml_status_MyHTML_STATUS_TOKENIZER_ERROR_FRAGMENT_INIT: myhtml_status = 37165;
-pub const myhtml_status_MyHTML_STATUS_TAGS_ERROR_MEMORY_ALLOCATION: myhtml_status = 37264;
-pub const myhtml_status_MyHTML_STATUS_TAGS_ERROR_MCOBJECT_CREATE: myhtml_status = 37265;
-pub const myhtml_status_MyHTML_STATUS_TAGS_ERROR_MCOBJECT_MALLOC: myhtml_status = 37266;
-pub const myhtml_status_MyHTML_STATUS_TAGS_ERROR_MCOBJECT_CREATE_NODE: myhtml_status = 37267;
-pub const myhtml_status_MyHTML_STATUS_TAGS_ERROR_CACHE_MEMORY_ALLOCATION: myhtml_status = 37268;
-pub const myhtml_status_MyHTML_STATUS_TAGS_ERROR_INDEX_MEMORY_ALLOCATION: myhtml_status = 37269;
-pub const myhtml_status_MyHTML_STATUS_TREE_ERROR_MEMORY_ALLOCATION: myhtml_status = 37364;
-pub const myhtml_status_MyHTML_STATUS_TREE_ERROR_MCOBJECT_CREATE: myhtml_status = 37365;
-pub const myhtml_status_MyHTML_STATUS_TREE_ERROR_MCOBJECT_INIT: myhtml_status = 37366;
-pub const myhtml_status_MyHTML_STATUS_TREE_ERROR_MCOBJECT_CREATE_NODE: myhtml_status = 37367;
-pub const myhtml_status_MyHTML_STATUS_TREE_ERROR_INCOMING_BUFFER_CREATE: myhtml_status = 37368;
-pub const myhtml_status_MyHTML_STATUS_ATTR_ERROR_ALLOCATION: myhtml_status = 37464;
-pub const myhtml_status_MyHTML_STATUS_ATTR_ERROR_CREATE: myhtml_status = 37465;
-pub const myhtml_status_MyHTML_STATUS_STREAM_BUFFER_ERROR_CREATE: myhtml_status = 37632;
-pub const myhtml_status_MyHTML_STATUS_STREAM_BUFFER_ERROR_INIT: myhtml_status = 37633;
-pub const myhtml_status_MyHTML_STATUS_STREAM_BUFFER_ENTRY_ERROR_CREATE: myhtml_status = 37634;
-pub const myhtml_status_MyHTML_STATUS_STREAM_BUFFER_ENTRY_ERROR_INIT: myhtml_status = 37635;
-pub const myhtml_status_MyHTML_STATUS_STREAM_BUFFER_ERROR_ADD_ENTRY: myhtml_status = 37636;
-pub type myhtml_status = u32;
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myhtml_tags {
+    MyHTML_TAG__UNDEF = 0,
+    MyHTML_TAG__TEXT = 1,
+    MyHTML_TAG__COMMENT = 2,
+    MyHTML_TAG__DOCTYPE = 3,
+    MyHTML_TAG_A = 4,
+    MyHTML_TAG_ABBR = 5,
+    MyHTML_TAG_ACRONYM = 6,
+    MyHTML_TAG_ADDRESS = 7,
+    MyHTML_TAG_ANNOTATION_XML = 8,
+    MyHTML_TAG_APPLET = 9,
+    MyHTML_TAG_AREA = 10,
+    MyHTML_TAG_ARTICLE = 11,
+    MyHTML_TAG_ASIDE = 12,
+    MyHTML_TAG_AUDIO = 13,
+    MyHTML_TAG_B = 14,
+    MyHTML_TAG_BASE = 15,
+    MyHTML_TAG_BASEFONT = 16,
+    MyHTML_TAG_BDI = 17,
+    MyHTML_TAG_BDO = 18,
+    MyHTML_TAG_BGSOUND = 19,
+    MyHTML_TAG_BIG = 20,
+    MyHTML_TAG_BLINK = 21,
+    MyHTML_TAG_BLOCKQUOTE = 22,
+    MyHTML_TAG_BODY = 23,
+    MyHTML_TAG_BR = 24,
+    MyHTML_TAG_BUTTON = 25,
+    MyHTML_TAG_CANVAS = 26,
+    MyHTML_TAG_CAPTION = 27,
+    MyHTML_TAG_CENTER = 28,
+    MyHTML_TAG_CITE = 29,
+    MyHTML_TAG_CODE = 30,
+    MyHTML_TAG_COL = 31,
+    MyHTML_TAG_COLGROUP = 32,
+    MyHTML_TAG_COMMAND = 33,
+    MyHTML_TAG_COMMENT = 34,
+    MyHTML_TAG_DATALIST = 35,
+    MyHTML_TAG_DD = 36,
+    MyHTML_TAG_DEL = 37,
+    MyHTML_TAG_DETAILS = 38,
+    MyHTML_TAG_DFN = 39,
+    MyHTML_TAG_DIALOG = 40,
+    MyHTML_TAG_DIR = 41,
+    MyHTML_TAG_DIV = 42,
+    MyHTML_TAG_DL = 43,
+    MyHTML_TAG_DT = 44,
+    MyHTML_TAG_EM = 45,
+    MyHTML_TAG_EMBED = 46,
+    MyHTML_TAG_FIELDSET = 47,
+    MyHTML_TAG_FIGCAPTION = 48,
+    MyHTML_TAG_FIGURE = 49,
+    MyHTML_TAG_FONT = 50,
+    MyHTML_TAG_FOOTER = 51,
+    MyHTML_TAG_FORM = 52,
+    MyHTML_TAG_FRAME = 53,
+    MyHTML_TAG_FRAMESET = 54,
+    MyHTML_TAG_H1 = 55,
+    MyHTML_TAG_H2 = 56,
+    MyHTML_TAG_H3 = 57,
+    MyHTML_TAG_H4 = 58,
+    MyHTML_TAG_H5 = 59,
+    MyHTML_TAG_H6 = 60,
+    MyHTML_TAG_HEAD = 61,
+    MyHTML_TAG_HEADER = 62,
+    MyHTML_TAG_HGROUP = 63,
+    MyHTML_TAG_HR = 64,
+    MyHTML_TAG_HTML = 65,
+    MyHTML_TAG_I = 66,
+    MyHTML_TAG_IFRAME = 67,
+    MyHTML_TAG_IMAGE = 68,
+    MyHTML_TAG_IMG = 69,
+    MyHTML_TAG_INPUT = 70,
+    MyHTML_TAG_INS = 71,
+    MyHTML_TAG_ISINDEX = 72,
+    MyHTML_TAG_KBD = 73,
+    MyHTML_TAG_KEYGEN = 74,
+    MyHTML_TAG_LABEL = 75,
+    MyHTML_TAG_LEGEND = 76,
+    MyHTML_TAG_LI = 77,
+    MyHTML_TAG_LINK = 78,
+    MyHTML_TAG_LISTING = 79,
+    MyHTML_TAG_MAIN = 80,
+    MyHTML_TAG_MAP = 81,
+    MyHTML_TAG_MARK = 82,
+    MyHTML_TAG_MARQUEE = 83,
+    MyHTML_TAG_MENU = 84,
+    MyHTML_TAG_MENUITEM = 85,
+    MyHTML_TAG_META = 86,
+    MyHTML_TAG_METER = 87,
+    MyHTML_TAG_MTEXT = 88,
+    MyHTML_TAG_NAV = 89,
+    MyHTML_TAG_NOBR = 90,
+    MyHTML_TAG_NOEMBED = 91,
+    MyHTML_TAG_NOFRAMES = 92,
+    MyHTML_TAG_NOSCRIPT = 93,
+    MyHTML_TAG_OBJECT = 94,
+    MyHTML_TAG_OL = 95,
+    MyHTML_TAG_OPTGROUP = 96,
+    MyHTML_TAG_OPTION = 97,
+    MyHTML_TAG_OUTPUT = 98,
+    MyHTML_TAG_P = 99,
+    MyHTML_TAG_PARAM = 100,
+    MyHTML_TAG_PLAINTEXT = 101,
+    MyHTML_TAG_PRE = 102,
+    MyHTML_TAG_PROGRESS = 103,
+    MyHTML_TAG_Q = 104,
+    MyHTML_TAG_RB = 105,
+    MyHTML_TAG_RP = 106,
+    MyHTML_TAG_RT = 107,
+    MyHTML_TAG_RTC = 108,
+    MyHTML_TAG_RUBY = 109,
+    MyHTML_TAG_S = 110,
+    MyHTML_TAG_SAMP = 111,
+    MyHTML_TAG_SCRIPT = 112,
+    MyHTML_TAG_SECTION = 113,
+    MyHTML_TAG_SELECT = 114,
+    MyHTML_TAG_SMALL = 115,
+    MyHTML_TAG_SOURCE = 116,
+    MyHTML_TAG_SPAN = 117,
+    MyHTML_TAG_STRIKE = 118,
+    MyHTML_TAG_STRONG = 119,
+    MyHTML_TAG_STYLE = 120,
+    MyHTML_TAG_SUB = 121,
+    MyHTML_TAG_SUMMARY = 122,
+    MyHTML_TAG_SUP = 123,
+    MyHTML_TAG_SVG = 124,
+    MyHTML_TAG_TABLE = 125,
+    MyHTML_TAG_TBODY = 126,
+    MyHTML_TAG_TD = 127,
+    MyHTML_TAG_TEMPLATE = 128,
+    MyHTML_TAG_TEXTAREA = 129,
+    MyHTML_TAG_TFOOT = 130,
+    MyHTML_TAG_TH = 131,
+    MyHTML_TAG_THEAD = 132,
+    MyHTML_TAG_TIME = 133,
+    MyHTML_TAG_TITLE = 134,
+    MyHTML_TAG_TR = 135,
+    MyHTML_TAG_TRACK = 136,
+    MyHTML_TAG_TT = 137,
+    MyHTML_TAG_U = 138,
+    MyHTML_TAG_UL = 139,
+    MyHTML_TAG_VAR = 140,
+    MyHTML_TAG_VIDEO = 141,
+    MyHTML_TAG_WBR = 142,
+    MyHTML_TAG_XMP = 143,
+    MyHTML_TAG_ALTGLYPH = 144,
+    MyHTML_TAG_ALTGLYPHDEF = 145,
+    MyHTML_TAG_ALTGLYPHITEM = 146,
+    MyHTML_TAG_ANIMATE = 147,
+    MyHTML_TAG_ANIMATECOLOR = 148,
+    MyHTML_TAG_ANIMATEMOTION = 149,
+    MyHTML_TAG_ANIMATETRANSFORM = 150,
+    MyHTML_TAG_CIRCLE = 151,
+    MyHTML_TAG_CLIPPATH = 152,
+    MyHTML_TAG_COLOR_PROFILE = 153,
+    MyHTML_TAG_CURSOR = 154,
+    MyHTML_TAG_DEFS = 155,
+    MyHTML_TAG_DESC = 156,
+    MyHTML_TAG_ELLIPSE = 157,
+    MyHTML_TAG_FEBLEND = 158,
+    MyHTML_TAG_FECOLORMATRIX = 159,
+    MyHTML_TAG_FECOMPONENTTRANSFER = 160,
+    MyHTML_TAG_FECOMPOSITE = 161,
+    MyHTML_TAG_FECONVOLVEMATRIX = 162,
+    MyHTML_TAG_FEDIFFUSELIGHTING = 163,
+    MyHTML_TAG_FEDISPLACEMENTMAP = 164,
+    MyHTML_TAG_FEDISTANTLIGHT = 165,
+    MyHTML_TAG_FEDROPSHADOW = 166,
+    MyHTML_TAG_FEFLOOD = 167,
+    MyHTML_TAG_FEFUNCA = 168,
+    MyHTML_TAG_FEFUNCB = 169,
+    MyHTML_TAG_FEFUNCG = 170,
+    MyHTML_TAG_FEFUNCR = 171,
+    MyHTML_TAG_FEGAUSSIANBLUR = 172,
+    MyHTML_TAG_FEIMAGE = 173,
+    MyHTML_TAG_FEMERGE = 174,
+    MyHTML_TAG_FEMERGENODE = 175,
+    MyHTML_TAG_FEMORPHOLOGY = 176,
+    MyHTML_TAG_FEOFFSET = 177,
+    MyHTML_TAG_FEPOINTLIGHT = 178,
+    MyHTML_TAG_FESPECULARLIGHTING = 179,
+    MyHTML_TAG_FESPOTLIGHT = 180,
+    MyHTML_TAG_FETILE = 181,
+    MyHTML_TAG_FETURBULENCE = 182,
+    MyHTML_TAG_FILTER = 183,
+    MyHTML_TAG_FONT_FACE = 184,
+    MyHTML_TAG_FONT_FACE_FORMAT = 185,
+    MyHTML_TAG_FONT_FACE_NAME = 186,
+    MyHTML_TAG_FONT_FACE_SRC = 187,
+    MyHTML_TAG_FONT_FACE_URI = 188,
+    MyHTML_TAG_FOREIGNOBJECT = 189,
+    MyHTML_TAG_G = 190,
+    MyHTML_TAG_GLYPH = 191,
+    MyHTML_TAG_GLYPHREF = 192,
+    MyHTML_TAG_HKERN = 193,
+    MyHTML_TAG_LINE = 194,
+    MyHTML_TAG_LINEARGRADIENT = 195,
+    MyHTML_TAG_MARKER = 196,
+    MyHTML_TAG_MASK = 197,
+    MyHTML_TAG_METADATA = 198,
+    MyHTML_TAG_MISSING_GLYPH = 199,
+    MyHTML_TAG_MPATH = 200,
+    MyHTML_TAG_PATH = 201,
+    MyHTML_TAG_PATTERN = 202,
+    MyHTML_TAG_POLYGON = 203,
+    MyHTML_TAG_POLYLINE = 204,
+    MyHTML_TAG_RADIALGRADIENT = 205,
+    MyHTML_TAG_RECT = 206,
+    MyHTML_TAG_SET = 207,
+    MyHTML_TAG_STOP = 208,
+    MyHTML_TAG_SWITCH = 209,
+    MyHTML_TAG_SYMBOL = 210,
+    MyHTML_TAG_TEXT = 211,
+    MyHTML_TAG_TEXTPATH = 212,
+    MyHTML_TAG_TREF = 213,
+    MyHTML_TAG_TSPAN = 214,
+    MyHTML_TAG_USE = 215,
+    MyHTML_TAG_VIEW = 216,
+    MyHTML_TAG_VKERN = 217,
+    MyHTML_TAG_MATH = 218,
+    MyHTML_TAG_MACTION = 219,
+    MyHTML_TAG_MALIGNGROUP = 220,
+    MyHTML_TAG_MALIGNMARK = 221,
+    MyHTML_TAG_MENCLOSE = 222,
+    MyHTML_TAG_MERROR = 223,
+    MyHTML_TAG_MFENCED = 224,
+    MyHTML_TAG_MFRAC = 225,
+    MyHTML_TAG_MGLYPH = 226,
+    MyHTML_TAG_MI = 227,
+    MyHTML_TAG_MLABELEDTR = 228,
+    MyHTML_TAG_MLONGDIV = 229,
+    MyHTML_TAG_MMULTISCRIPTS = 230,
+    MyHTML_TAG_MN = 231,
+    MyHTML_TAG_MO = 232,
+    MyHTML_TAG_MOVER = 233,
+    MyHTML_TAG_MPADDED = 234,
+    MyHTML_TAG_MPHANTOM = 235,
+    MyHTML_TAG_MROOT = 236,
+    MyHTML_TAG_MROW = 237,
+    MyHTML_TAG_MS = 238,
+    MyHTML_TAG_MSCARRIES = 239,
+    MyHTML_TAG_MSCARRY = 240,
+    MyHTML_TAG_MSGROUP = 241,
+    MyHTML_TAG_MSLINE = 242,
+    MyHTML_TAG_MSPACE = 243,
+    MyHTML_TAG_MSQRT = 244,
+    MyHTML_TAG_MSROW = 245,
+    MyHTML_TAG_MSTACK = 246,
+    MyHTML_TAG_MSTYLE = 247,
+    MyHTML_TAG_MSUB = 248,
+    MyHTML_TAG_MSUP = 249,
+    MyHTML_TAG_MSUBSUP = 250,
+    MyHTML_TAG__END_OF_FILE = 251,
+    MyHTML_TAG_LAST_ENTRY = 252,
+}
+#[repr(u32)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myhtml_status {
+    MyHTML_STATUS_OK = 0,
+    MyHTML_STATUS_ERROR = 1,
+    MyHTML_STATUS_ERROR_MEMORY_ALLOCATION = 2,
+    MyHTML_STATUS_RULES_ERROR_MEMORY_ALLOCATION = 36964,
+    MyHTML_STATUS_TOKENIZER_ERROR_MEMORY_ALLOCATION = 37164,
+    MyHTML_STATUS_TOKENIZER_ERROR_FRAGMENT_INIT = 37165,
+    MyHTML_STATUS_TAGS_ERROR_MEMORY_ALLOCATION = 37264,
+    MyHTML_STATUS_TAGS_ERROR_MCOBJECT_CREATE = 37265,
+    MyHTML_STATUS_TAGS_ERROR_MCOBJECT_MALLOC = 37266,
+    MyHTML_STATUS_TAGS_ERROR_MCOBJECT_CREATE_NODE = 37267,
+    MyHTML_STATUS_TAGS_ERROR_CACHE_MEMORY_ALLOCATION = 37268,
+    MyHTML_STATUS_TAGS_ERROR_INDEX_MEMORY_ALLOCATION = 37269,
+    MyHTML_STATUS_TREE_ERROR_MEMORY_ALLOCATION = 37364,
+    MyHTML_STATUS_TREE_ERROR_MCOBJECT_CREATE = 37365,
+    MyHTML_STATUS_TREE_ERROR_MCOBJECT_INIT = 37366,
+    MyHTML_STATUS_TREE_ERROR_MCOBJECT_CREATE_NODE = 37367,
+    MyHTML_STATUS_TREE_ERROR_INCOMING_BUFFER_CREATE = 37368,
+    MyHTML_STATUS_ATTR_ERROR_ALLOCATION = 37464,
+    MyHTML_STATUS_ATTR_ERROR_CREATE = 37465,
+    MyHTML_STATUS_STREAM_BUFFER_ERROR_CREATE = 37632,
+    MyHTML_STATUS_STREAM_BUFFER_ERROR_INIT = 37633,
+    MyHTML_STATUS_STREAM_BUFFER_ENTRY_ERROR_CREATE = 37634,
+    MyHTML_STATUS_STREAM_BUFFER_ENTRY_ERROR_INIT = 37635,
+    MyHTML_STATUS_STREAM_BUFFER_ERROR_ADD_ENTRY = 37636,
+}
 pub use self::myhtml_status as myhtml_status_t;
-pub const myhtml_namespace_MyHTML_NAMESPACE_UNDEF: myhtml_namespace = 0;
-pub const myhtml_namespace_MyHTML_NAMESPACE_HTML: myhtml_namespace = 1;
-pub const myhtml_namespace_MyHTML_NAMESPACE_MATHML: myhtml_namespace = 2;
-pub const myhtml_namespace_MyHTML_NAMESPACE_SVG: myhtml_namespace = 3;
-pub const myhtml_namespace_MyHTML_NAMESPACE_XLINK: myhtml_namespace = 4;
-pub const myhtml_namespace_MyHTML_NAMESPACE_XML: myhtml_namespace = 5;
-pub const myhtml_namespace_MyHTML_NAMESPACE_XMLNS: myhtml_namespace = 6;
-pub const myhtml_namespace_MyHTML_NAMESPACE_ANY: myhtml_namespace = 7;
-pub const myhtml_namespace_MyHTML_NAMESPACE_LAST_ENTRY: myhtml_namespace = 7;
+impl myhtml_namespace {
+    pub const MyHTML_NAMESPACE_LAST_ENTRY: myhtml_namespace =
+        myhtml_namespace::MyHTML_NAMESPACE_ANY;
+}
+#[repr(u32)]
 #[doc = " @struct myhtml namespace"]
-pub type myhtml_namespace = u32;
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myhtml_namespace {
+    MyHTML_NAMESPACE_UNDEF = 0,
+    MyHTML_NAMESPACE_HTML = 1,
+    MyHTML_NAMESPACE_MATHML = 2,
+    MyHTML_NAMESPACE_SVG = 3,
+    MyHTML_NAMESPACE_XLINK = 4,
+    MyHTML_NAMESPACE_XML = 5,
+    MyHTML_NAMESPACE_XMLNS = 6,
+    MyHTML_NAMESPACE_ANY = 7,
+}
 pub use self::myhtml_namespace as myhtml_namespace_t;
-pub const myhtml_options_MyHTML_OPTIONS_DEFAULT: myhtml_options = 0;
-pub const myhtml_options_MyHTML_OPTIONS_PARSE_MODE_SINGLE: myhtml_options = 1;
-pub const myhtml_options_MyHTML_OPTIONS_PARSE_MODE_ALL_IN_ONE: myhtml_options = 2;
-pub const myhtml_options_MyHTML_OPTIONS_PARSE_MODE_SEPARATELY: myhtml_options = 4;
+#[repr(u32)]
 #[doc = " @struct myhtml options"]
-pub type myhtml_options = u32;
-pub const myhtml_tree_parse_flags_MyHTML_TREE_PARSE_FLAGS_CLEAN: myhtml_tree_parse_flags = 0;
-pub const myhtml_tree_parse_flags_MyHTML_TREE_PARSE_FLAGS_WITHOUT_BUILD_TREE:
-    myhtml_tree_parse_flags = 1;
-pub const myhtml_tree_parse_flags_MyHTML_TREE_PARSE_FLAGS_WITHOUT_PROCESS_TOKEN:
-    myhtml_tree_parse_flags = 3;
-pub const myhtml_tree_parse_flags_MyHTML_TREE_PARSE_FLAGS_SKIP_WHITESPACE_TOKEN:
-    myhtml_tree_parse_flags = 4;
-pub const myhtml_tree_parse_flags_MyHTML_TREE_PARSE_FLAGS_WITHOUT_DOCTYPE_IN_TREE:
-    myhtml_tree_parse_flags = 8;
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myhtml_options {
+    MyHTML_OPTIONS_DEFAULT = 0,
+    MyHTML_OPTIONS_PARSE_MODE_SINGLE = 1,
+    MyHTML_OPTIONS_PARSE_MODE_ALL_IN_ONE = 2,
+    MyHTML_OPTIONS_PARSE_MODE_SEPARATELY = 4,
+}
+#[repr(u32)]
 #[doc = " @struct myhtml_tree parse flags"]
-pub type myhtml_tree_parse_flags = u32;
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum myhtml_tree_parse_flags {
+    MyHTML_TREE_PARSE_FLAGS_CLEAN = 0,
+    MyHTML_TREE_PARSE_FLAGS_WITHOUT_BUILD_TREE = 1,
+    MyHTML_TREE_PARSE_FLAGS_WITHOUT_PROCESS_TOKEN = 3,
+    MyHTML_TREE_PARSE_FLAGS_SKIP_WHITESPACE_TOKEN = 4,
+    MyHTML_TREE_PARSE_FLAGS_WITHOUT_DOCTYPE_IN_TREE = 8,
+}
 pub use self::myhtml_tree_parse_flags as myhtml_tree_parse_flags_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
